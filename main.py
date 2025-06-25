@@ -1,11 +1,12 @@
-# Меняем значения переменных местами
-a = 3
-b = 5
+# Iterable object
+# len() - сколько элементов объекте
+# a = 123456  # int - не является iterable
+#
+# length = len(str(a))  # поэтому конвертируем в str
+# print(length)
 
-print('До:')
-print('a =', a, 'b =', b)
-
-a, b = b, a  # swap
-
-print('После:')
-print('a =', a, 'b =', b)
+word = input('Введите слово для анализа длины: ')
+if not word or len(word) < 4:
+    print('Вы ничего не ввели или слово слишком короткое')
+else:
+    print('Длина слова "' + word + '" =', len(word))
