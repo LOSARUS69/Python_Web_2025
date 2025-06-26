@@ -9,5 +9,5 @@
 #                  0      3     1
 # итератор range(start, stop, step)
 for i in range(1, 101):
-    if i % 10 == 5:
+    if i % 10 == 5 and i != 15:
         print(i)
