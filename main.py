@@ -1,7 +1,7 @@
-# break, continue
+# match - case (3.10 >)
 height = int(input('Введите рост: '))
 
-while 150 >= height <= 180:
+while not (150 <= height <= 180):
     print(f'Рост кандидата {height} не подходит')
     height = int(input('Введите рост: '))
 
