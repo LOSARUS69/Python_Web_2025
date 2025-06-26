@@ -1,5 +1,13 @@
-# ключевое слово in
-word = 'поток'
+# цикл for
+# for <переменная> in iterable:
+#     команды
 
-if 'ток' in word:
-    print('Есть')
+# word = 'поток'
+#
+# for ch in word:
+#     print(ch)
+#                  0      3     1
+# итератор range(start, stop, step)
+for i in range(1, 101):
+    if i % 10 == 5:
+        print(i)
