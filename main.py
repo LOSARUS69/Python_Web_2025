@@ -1,15 +1,14 @@
+# break, continue
 num = 3  # число, которое надо угадать
-flag = True  # флаг, изменяет значения по событию
 var = ''
 
 print('Я загадал число, угадай!')
 
-while flag:
+while True:
     var = int(input('Ваше значение: '))
     if var == num:
         print('Ура. Угадал!')
-        flag = not flag  # флаг инвертирован
-        # аналогично flag = False
+        break
     elif var > num:
         print('Число больше загаданного!')
     else:
