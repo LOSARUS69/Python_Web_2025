@@ -1,17 +1,19 @@
-# Формат вывода 2
-name = 'Игорь'
-email = 'aaa@bbb.ru'
-age = 32
-weight = 92.633366254
+# Вводим коэффициенты
+a = int(input('введите a: '))
+b = int(input('введите b: '))
+c = int(input('введите c: '))
 
-# 1 способ (плейсхолдеры)
-# %s - string
-# %d - digit (целое число)
-# %f - float
-print('Имя: %s, E-mail: %s, Возраст: %d' % (name, email, age))
-
-# 2 способ
-print('Имя: {}, E-mail: {}, Возраст: {}'.format(name, email, age))
-
-# 3 способ (самый популярный с версии 3.6)
-print(f'Имя: {name}, E-mail: {email}, Возраст: {age}, Вес: {weight:.3f}')
+if a != 0:
+    # Дискриминант
+    d = b ** 2 - 4 * a * c
+    if d < 0:
+        print('Уравнение не имеет корней!')
+    elif d == 0:
+        x = -b / (2 * a)
+        print(f'Корень уравнения: {x:.2f}')
+    else:
+        x1 = (-b + d ** 0.5) / 2 * a
+        x2 = (-b - d ** 0.5) / 2 * a
+        print(f'Корни уравнения:\n\t\tx1 = {x1:.2f}\n\t\tx2 = {x2:.2f}')
+else:
+    print('По условию a не равно нулю!')
