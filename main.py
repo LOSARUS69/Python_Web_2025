@@ -1,19 +1,7 @@
-# Удаление всех кард, кроме туза
-cards = {3, 7, 'T', 'D', 'V', 'K'}
-# ace = {'T'}
-#
-# result = cards - ace
-# print(result)
-
-t_is = False
-# 2 вариант
-while cards:
-    card = cards.pop()
-    if card == 'T':
-        cards.add(card)
-        t_is = True
-    else:
-        print(card)
-
-    if t_is and len(cards) == 1:
-        break
+# Строки (immutable, iterable)
+#    012345
+s = 'Python'
+# s[3] = 'y' error (immutable)
+# Индекс может быть отрицательным (с конца)
+print(f'Длина слова: {len(s)}')
+print(s[-1])
