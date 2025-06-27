@@ -3,18 +3,28 @@
 # ord(символ) - возвращает код символа в Unicode
 # chr(код) - возвращает символа по Unicode-коду
 
-s = set()
-word = input('Введите фразу для зашифровки: ')
+# abc = 'абвгдеёжзийклмнопрстуфхцшщъыьэюя'
+phrase = 'Язык Python'
 
-# Зашифровываем
-for ch in word:
-    s.add(ord(ch))
+print(phrase.lower())  # все маленькие
+print(phrase.upper())  # все большие
+print(phrase.capitalize())  # только 1-я буква заглавная
+print(phrase.title())  # все слова с заглавной
+print('Ура! ' * 3)  # Повторение строки
+print('Телевизор'.count('е'))  # Количество вхождений подстроки
+print('Python'.index('h'))  # Индекс символа
 
-print(s)
-
-# Расшифровываем
-res = ''
-for i in s:
-    res += chr(i)
-
-print(res)
+"""
+['capitalize', 'casefold', 'center', 
+ 'count', 'encode', 'endswith', 'expandtabs', 
+ 'find', 'format', 'format_map', 'index', 
+ 'isalnum', 'isalpha', 'isascii', 'isdecimal', 
+ 'isdigit', 'isidentifier', 'islower', 'isnumeric', 
+ 'isprintable', 'isspace', 'istitle', 'isupper', 
+ 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 
+ 'partition', 'removeprefix', 'removesuffix', 
+ 'replace', 'rfind', 'rindex', 'rjust', 
+ 'rpartition', 'rsplit', 'rstrip', 'split', 
+ 'splitlines', 'startswith', 'strip', 
+ 'swapcase', 'title', 'translate', 'upper', 'zfill']
+ """
