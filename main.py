@@ -1,18 +1,11 @@
 # Строки (immutable, iterable)
-# две удобные функции
-# ord(символ) - возвращает код символа в Unicode
-# chr(код) - возвращает символа по Unicode-коду
+# Каждая буква повторяется столько раз,
+# какое её номер в строке (считаем с 1)
 
-# abc = 'абвгдеёжзийклмнопрстуфхцшщъыьэюя'
-phrase = 'Язык Python'
+word = 'статор'
 
-print(phrase.lower())  # все маленькие
-print(phrase.upper())  # все большие
-print(phrase.capitalize())  # только 1-я буква заглавная
-print(phrase.title())  # все слова с заглавной
-print('Ура! ' * 3)  # Повторение строки
-print('Телевизор'.count('е'))  # Количество вхождений подстроки
-print('Python'.index('h'))  # Индекс символа
+for i in range(1, len(word) + 1):
+    print(word[i - 1] * i, end='')
 
 """
 ['capitalize', 'casefold', 'center', 
