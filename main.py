@@ -2,10 +2,10 @@
 # Каждая буква повторяется столько раз,
 # какое её номер в строке (считаем с 1)
 
-word = 'статор'
+temp = int(input('Введите слово: ').strip())
+word = 'ротор'
 
-for i in range(1, len(word) + 1):
-    print(word[i - 1] * i, end='')
+print(word.strip('р'))
 
 """
 ['capitalize', 'casefold', 'center', 
