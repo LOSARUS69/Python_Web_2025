@@ -1,25 +1,29 @@
-# Подбор по росту
-# 150 < height < 180
-# Число кандидатов
-# Число, кто прошел по критерию
-# Среди прошедших min и max
-
-total = 0
-total_success = 0
-total_unsuccess = 0
-min_val = float('inf')
-max_val = float('-inf')
-
-while (num := int(input('Введите рост: '))) != -1:
-    if 150 <= num <= 180:
-        total_success += 1
-        if min_val > num:
-            min_val = num
-        if num > max_val:
-            max_val = num
-    total += 1
-
-print(f'Число кандидатов: {total}')
-print(f'Число прошедших отбор: {total_success}')
-print(f'Минимальный рост: {min_val}')
-print(f'Максимальный рост: {max_val}')
+# Коллекции (set, list, dict, tuple)
+# Множества
+s = set()  # пустое множество
+# print(dir(s)) - список методов множества
+s = {'3', '5', '7', '3', '3', 3}
+s.add(3) # добавление
+# Удаление
+s.remove('3') # вызывает ошибку если нет
+s.discard('3') # удаляет вслепую
+# s.clear() # очищает множество
+temp = s.pop() # удаляет случайный и возвращает его
+print(temp)
+print(type(s))  # класс
+print(f'Число элементов в s = {len(s)}')
+print('Присутствует ли 3')
+if str(3) in s:
+    print('Да')
+else:
+    print('Нет')
+for item in s:
+    if item == '3':
+        print(item)
+# 'add', 'clear', 'copy', 'difference',
+# 'difference_update', 'discard',
+# 'intersection', 'intersection_update',
+# 'isdisjoint', 'issubset', 'issuperset',
+# 'pop', 'remove', 'symmetric_difference',
+# 'symmetric_difference_update', 'union',
+# 'update']
