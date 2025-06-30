@@ -1,13 +1,16 @@
-# Cписки (list)
-# Создание аббревиатур
+# Кортеж (tuple, immutable)
+BLACK = (0, 0, 0)
+empty = ()  # tuple()
+one = (1,)
+temper = 36, 6
+s = 'Python'
+t = tuple(s) + ('.',)
+print(t)
 
-lst = []
+cards = [(7, 'червей'), ('туз', 'пик')]
 
-while (word := input('Введите слово: ').strip()) != '':
-    lst.append(word[0].upper())
+print((1, 2) < (1, 3))
+a = 3
+b = 4
 
-print('Получилась аббревиатура', end=': ')
-print(*lst[:10], sep='')
-
-['append', 'clear', 'copy', 'count', 'extend',
- 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+a, b = b, a
