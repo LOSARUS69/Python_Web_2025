@@ -1,35 +1,14 @@
 # Строки (immutable, iterable)
-# Шифр Цезаря
+# Начало и окончание строки
+# startswith и endswith
 
-# Создаем алфавит
-alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
-# alphabet_u = alphabet.upper()
+s = 'смотреть'
 
-# Получаем входные данные
-message = input('Введите строку: ').strip().lower()
-key = int(input('Введите ключ: '))
+if s.startswith('смо'):
+    print('Да')
 
-# Инициализируем пустую строку для результата
-encrypted = ''
-
-# Перебираем каждый символ в сообщении
-for letter in message:
-    # Проверяем, является ли символ буквой из алфавита
-    if letter in alphabet:
-        # Находим позицию буквы в алфавите
-        t = alphabet.index(letter)
-        # Вычисляем новую позицию с учетом сдвига
-        new_key = (t + key) % len(alphabet)
-        # Добавляем зашифрованный символ
-        encrypted += alphabet[new_key]
-    else:
-        # Если символ не буква, оставляем его без изменений
-        encrypted += letter
-
-# Для расшифровки достаточно изменить формулу вычисления позиции:
-# new_key = (t - key) % len(alphabet)
-
-print('Зашифрованное сообщение:', encrypted)
+if s.endswith('еть'):
+    print('Да')
 
 """
 ['capitalize', 'casefold', 'center', 
