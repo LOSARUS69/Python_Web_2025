@@ -1,6 +1,16 @@
 # Кортеж (tuple, immutable)
-channels = [128, 200, 155]
+# Студент и средний балл
 
-r, g, b = channels
+N = 3
+students = []
 
-print(r, g, b)
+for _ in range(N):
+    student, average = input('ФИО: '), float(input('Ср. балл: '))
+    students.append((student, average))
+
+print(students)
+
+for st in students:
+    student, average = st
+    print('Студент: ', student)
+    print('Средний балл: ', average)
