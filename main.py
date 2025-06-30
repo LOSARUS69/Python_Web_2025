@@ -1,20 +1,17 @@
 # Cписки (list)
 
-# lst = []  # пустой список
-lst = [1, 7, 3, 5, 6, 4]
-lst.append(2)
+lst = []  # пустой список
+while (item := input('Ингредиент: ')) != '':
+    lst.append(item)
+
+temp = set(lst)
+lst = list(temp)
+
+print(f'У нас есть {len(lst)} ингредиентов: ')
 lst.sort()
-lst.reverse()
 
-print(lst)
-
-a = ['a', 'b', 'c']
-b = a[:]  # a.copy()
-b.append('d')  # b += ['d']
-print(id(a))
-print(id(b))
-print(a)
-print(b)
+for i in range(len(lst)):
+    print(f'\t{i + 1}. {lst[i]}')
 
 ['append', 'clear', 'copy', 'count', 'extend',
  'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
