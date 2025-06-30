@@ -1,26 +1,10 @@
 # Строки (immutable, iterable)
-# Начало и окончание строки
-# 1. replace('что', 'на что') - полная замена
-# 2. replace('что', 'на что', сколько раз) - число замен
+# Cрез (у строки и у других коллекций, кроме set)
+# [начало:окончание:шаг]
 
-s = '+7-012-345-67-89' # => +7 (012) 345-67-89
+s = 'добрый день'
 
-print(s.replace('-',
-                ' (',
-                1).replace('-', ') ', 1))
-
-
-"""
-['capitalize', 'casefold', 'center', 
- 'count', 'encode', 'endswith', 'expandtabs', 
- 'find', 'format', 'format_map', 'index', 
- 'isalnum', 'isalpha', 'isascii', 'isdecimal', 
- 'isdigit', 'isidentifier', 'islower', 'isnumeric', 
- 'isprintable', 'isspace', 'istitle', 'isupper', 
- 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 
- 'partition', 'removeprefix', 'removesuffix', 
- 'replace', 'rfind', 'rindex', 'rjust', 
- 'rpartition', 'rsplit', 'rstrip', 'split', 
- 'splitlines', 'startswith', 'strip', 
- 'swapcase', 'title', 'translate', 'upper', 'zfill']
- """
+print(s[:6]) # от начала и до заданного индекса
+print(s[7:]) # от текущего индекса до конца
+print(s[3:8]) # от n до m (не включая)
+print(s[::-1])
