@@ -1,21 +1,13 @@
 # Cписки (list)
-# Имитация стека
+# Создание аббревиатур
 
-N = 5
+lst = []
 
-lst = []  # пустой список
+while (word := input('Введите слово: ').strip()) != '':
+    lst.append(word[0].upper())
 
-for i in range(N):
-    print(f'Кладём книгу {i + 1} в стопку.')
-    lst.append(i + 1)
-
-print('---')
-
-while lst:
-    item = lst.pop()
-    print(f'Берём книгу {item} из стопки.')
-
-
+print('Получилась аббревиатура', end=': ')
+print(*lst[:10], sep='')
 
 ['append', 'clear', 'copy', 'count', 'extend',
  'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
