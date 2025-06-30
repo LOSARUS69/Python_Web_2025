@@ -1,12 +1,8 @@
 # Кортеж (tuple, immutable)
-# Функция sorted() - возвращает сортированный список
+# Функция enumerate() - в цикле for возвращает пару (i, v)
 
-s = {'Крутов', 'Селезнёв', 'Митрофанова'}
-r = False
+fio = ['Крутов', 'Митрофанова', 'Селезнёв']
 
-lst = sorted(s, reverse=r)
+for i, v in enumerate(fio):
+    print(f'{i + 1}. {v}.')
 
-# lst = list(s)
-# lst.sort()
-
-print(*lst, sep=', ')
