@@ -1,14 +1,24 @@
 # Строки (immutable, iterable)
 # Начало и окончание строки
-# startswith и endswith
+# 1. find('подстрока') - с самого начала (0-й индекс)
+# 2. find('подстрока', start) - с какого места искать
+# 3. find('подстрока', start, end) - с какого по какое
 
-s = 'Cмотреть'
+s = 'синхрофазотрон'  # ищем 'о': сколько их и где находятся
+ch = 'о'
 
-if s.lower().startswith('cмо'):
-    print('Да')
+if ch in s:
+    count = s.count(ch)
+    print(f'Буква \'{ch}\' встречается в слове "{s}" {count} раз(а).')
+    print('Её позиция/позиции:', end=' ')
+    start = 0
+    for i in range(count):
+        pos = s.find(ch, start)
+        start = pos + 1
+        print(pos, end=' ')
+else:
+    print(f'Буквы \'{ch}\' нет в слове "{s}".')
 
-if s.endswith('еть'):
-    print('Да')
 
 """
 ['capitalize', 'casefold', 'center', 
