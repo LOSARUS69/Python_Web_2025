@@ -1,17 +1,21 @@
 # Cписки (list)
+# Имитация стека
+
+N = 5
 
 lst = []  # пустой список
-while (item := input('Ингредиент: ')) != '':
-    lst.append(item)
 
-temp = set(lst)
-lst = list(temp)
+for i in range(N):
+    print(f'Кладём книгу {i + 1} в стопку.')
+    lst.append(i + 1)
 
-print(f'У нас есть {len(lst)} ингредиентов: ')
-lst.sort()
+print('---')
 
-for i in range(len(lst)):
-    print(f'\t{i + 1}. {lst[i]}')
+while lst:
+    item = lst.pop()
+    print(f'Берём книгу {item} из стопки.')
+
+
 
 ['append', 'clear', 'copy', 'count', 'extend',
  'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
