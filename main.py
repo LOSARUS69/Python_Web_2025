@@ -2,9 +2,9 @@
 # Начало и окончание строки
 # startswith и endswith
 
-s = 'смотреть'
+s = 'Cмотреть'
 
-if s.startswith('смо'):
+if s.lower().startswith('cмо'):
     print('Да')
 
 if s.endswith('еть'):
