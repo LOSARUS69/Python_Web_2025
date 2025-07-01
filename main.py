@@ -1,18 +1,27 @@
-# Списочные выражения (list comprehension)
-# Занести в список каждое третье слово из предложения
-text = 'Списочные выражения применяются для эффективности кода'
+# Вложенные списки
+# N = 3
+# # matrix = [
+# #     [1, 2, 3],
+# #     [4, 5, 6],
+# #     [7, 8, 9],
+# # ]
+#
+# matrix = [[1] * N for _ in range(N)]
+# print(matrix)
+# # обход 2-мерного списка (матрицы)
+# count = 1
+# for row in range(len(matrix)):
+#     for col in range(len(matrix[row])):
+#         matrix[row][col] = count
+#         count += 1
+# print(matrix)
+
+#text = 'Списочные выражения применяются для эффективности кода'
 
 # res = [a for a in text.split() if (text.index(a) + 1) % 3 == 0]
-res = [a for a in text.split()[2::3]]
+#res = [a for a in text.split()[2::3]]
 # операции со списком
-print(res)
-
-
-
-
-
-
-
+#print(res)
 
 # squares = []
 # for i in range(10):
