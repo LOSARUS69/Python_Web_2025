@@ -1,4 +1,19 @@
 # Вложенные списки
+matrix = []
+table = []
+
+start = 1
+N = 4
+
+for i in range(N):
+    for j in range(start, start + N):
+        table.append(j)
+    matrix.append(table)
+    table = []
+    start += N
+
+print(matrix)
+
 # N = 3
 # # matrix = [
 # #     [1, 2, 3],
@@ -16,12 +31,12 @@
 #         count += 1
 # print(matrix)
 
-#text = 'Списочные выражения применяются для эффективности кода'
+# text = 'Списочные выражения применяются для эффективности кода'
 
 # res = [a for a in text.split() if (text.index(a) + 1) % 3 == 0]
-#res = [a for a in text.split()[2::3]]
+# res = [a for a in text.split()[2::3]]
 # операции со списком
-#print(res)
+# print(res)
 
 # squares = []
 # for i in range(10):
