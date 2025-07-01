@@ -1,32 +1,61 @@
+# ДЗ: Функция: число словами 56 -> пятьдесят шесть
+def num_to_word(num):
+    if str(num) > 3:
+        return
+    e = num % 10
+    le = ['один', 'два']
+
+
 # Функции (Do not Repeat Yourself)
+# Return Value
+def square(num):
+    return num ** 2
+
+
+def even_odd(num):
+    if num % 2 == 0:
+        return 'Чётное'
+    return 'Нечётное'
+
+
+def print_string(s=None):
+    if s is None:
+        return
+    print(s)
+
+
+t = square(5)
+print(even_odd(5))
+print(t)
+
 # Scope (local or global)
 # Синтаксис:
 # def <имя функции>([параметры]):
 #     команды
-person = 'Пётр'  # глобальная
-count = 0
-
-
-def greet_to_name(name='noname'):
-    print('Привет,', name)
-    print(count)
-
-
-def increment():
-    global count
-    count += 1
-
-
-def print_list(array=None):
-    if array is None:
-        array = []
-    for item in array:
-        print(item)
-
-
-# increment()
-greet_to_name()
-print_list()
+# person = 'Пётр'  # глобальная
+# count = 0
+#
+#
+# def greet_to_name(name='noname'):
+#     print('Привет,', name)
+#     print(count)
+#
+#
+# def increment():
+#     global count
+#     count += 1
+#
+#
+# def print_list(array=None):
+#     if array is None:
+#         array = []
+#     for item in array:
+#         print(item)
+#
+#
+# # increment()
+# greet_to_name()
+# print_list()
 
 # Словари
 # Частотный анализ
