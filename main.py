@@ -1,76 +1,106 @@
+# Функции (Do not Repeat Yourself)
+# Scope (local or global)
+# Синтаксис:
+# def <имя функции>([параметры]):
+#     команды
+person = 'Пётр'  # глобальная
+count = 0
+
+
+def greet_to_name(name='noname'):
+    print('Привет,', name)
+    print(count)
+
+
+def increment():
+    global count
+    count += 1
+
+
+def print_list(array=None):
+    if array is None:
+        array = []
+    for item in array:
+        print(item)
+
+
+# increment()
+greet_to_name()
+print_list()
+
 # Словари
 # Частотный анализ
-
-res = {}
-
-text = """Минтруд России подготовил проект календаря 
-праздничных и выходных дней на 2026 год, в соответствии с которым новогодние праздники 
-продлятся 12 дней - с 31 декабря 2025 года по 11 января 2026 года,
- говорится в сообщении пресс-службы министерства. 
-"""
-
-commas = (',', '!', '.', '?', '-', ':')
-for x in commas:
-    text = text.replace(x, '')
-
-lst = sorted(text.strip().lower().split())
-
-for item in lst:
-    if item in res.keys():
-        res[item] += 1
-    else:
-        res[item] = 1
-
-print('Частотный анализ слов текста')
-for k, v in res.items():
-    print(f'\t{k}: {v}')
+#
+# res = {}
+#
+# text = """Минтруд России подготовил проект календаря
+# праздничных и выходных дней на 2026 год, в соответствии с которым новогодние праздники
+# продлятся 12 дней - с 31 декабря 2025 года по 11 января 2026 года,
+#  говорится в сообщении пресс-службы министерства.
+# """
+#
+# commas = (',', '!', '.', '?', '-', ':')
+# for x in commas:
+#     text = text.replace(x, '')
+#
+# lst = sorted(text.strip().lower().split())
+#
+# for item in lst:
+#     if item in res.keys():
+#         res[item] += 1
+#     else:
+#         res[item] = 1
+#
+# print('Частотный анализ слов текста')
+# for k, v in res.items():
+#     print(f'\t{k}: {v}')
 
 
 # Пустой словарь
 # 1. d = {}
 # 2. d = dict()
 # Предзаполненный словарь
-d = {
-    'table': ['таблица', 'стол'],
-    'well': ['хорошо', 'колодец'],
-    'chair': 'стул',
-    'apple': 'яблоко',
-    1: 'один',
-    (55.75, 37.5): 'Москва'
-}
-
-print(d[(55.75, 37.5)])
-
-print(d['well'][0])
-if type(d['well']) == list:
-    d['well'].append('скважина')
-d['plum'] = 'слива'
-print(d['plum'])
-del d['well']
-
-deleted_item = d.pop('apple')
-
-print('Удалился элемент:', deleted_item)
-
-print('Есть ли стул в словаре')
-if 'стул' in d.values():
-    print('Да, есть')
-
-print('Доступ к несуществующему ключу без "исключений"')
-pear = d.get('pear', 'Груши нет')
-print('Где груша: ', pear)
-
-# Перебор по умолчанию
-for key in d.keys():  # d.keys()
-    print(key, '->', d[key])
-
-# Перебор пар "ключ-значение"
-for k, v in d.items():
-    print(k, '->', v)
-
-print(d.keys())  # список ключей (list)
-print(d.values())  # список значений (list)
-print(d.items())  # список пар (ключ - значение)
+# d = {
+#     'table': ['таблица', 'стол'],
+#     'well': ['хорошо', 'колодец'],
+#     'chair': 'стул',
+#     'apple': 'яблоко',
+#     1: 'один',
+#     (55.75, 37.5): 'Москва'
+# }
+#
+# print(d[(55.75, 37.5)])
+#
+# print(d['well'][0])
+# if type(d['well']) == list:
+#     d['well'].append('скважина')
+# d['plum'] = 'слива'
+# print(d['plum'])
+# del d['well']
+#
+# deleted_item = d.pop('apple')
+#
+# print('Удалился элемент:', deleted_item)
+#
+# print('Есть ли стул в словаре')
+# if 'стул' in d.values():
+#     print('Да, есть')
+#
+# print('Доступ к несуществующему ключу без "исключений"')
+# pear = d.get('pear', 'Груши нет')
+# print('Где груша: ', pear)
+#
+# # Перебор по умолчанию
+# for key in d.keys():  # d.keys()
+#     print(key, '->', d[key])
+#
+# # Перебор пар "ключ-значение"
+# for k, v in d.items():
+#     print(k, '->', v)
+#
+# print(d.keys())  # список ключей (list)
+# print(d.values())  # список значений (list)
+# print(d.items())  # список пар (ключ - значение)
 
 """ Методы словаря   
 ['clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 
