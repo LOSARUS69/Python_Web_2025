@@ -9,7 +9,10 @@ d = {
     'chair': 'стул',
     'apple': 'яблоко',
     1: 'один',
+    (55.75, 37.5): 'Москва'
 }
+
+print(d[(55.75, 37.5)])
 
 print(d['well'][0])
 if type(d['well']) == list:
@@ -23,22 +26,31 @@ deleted_item = d.pop('apple')
 print('Удалился элемент:', deleted_item)
 
 print('Есть ли стул в словаре')
-if 'chair' in d:
+if 'стул' in d.values():
     print('Да, есть')
 
-for key in d:
+print('Доступ к несуществующему ключу без "исключений"')
+pear = d.get('pear', 'Груши нет')
+print('Где груша: ', pear)
+
+# Перебор по умолчанию
+for key in d.keys():  # d.keys()
     print(key, '->', d[key])
+
+# Перебор пар "ключ-значение"
+for k, v in d.items():
+    print(k, '->', v)
+
+print(d.keys())  # список ключей (list)
+print(d.values())  # список значений (list)
+print(d.items())  # список пар (ключ - значение)
 
 """ Методы словаря   
 ['clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 
  'pop', 'popitem', 'setdefault', 'update', 'values']
 """
 
-
 # print(d) # - словарь целиком "как есть"
-
-
-
 
 
 # N = 3
