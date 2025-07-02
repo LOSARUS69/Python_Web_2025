@@ -1,14 +1,34 @@
-# Возврат нескольких значений из функции
+# Функция, с переменным числом аргументов
+def multy(*args, first=0):
+    # print(len(args)) # подсчёт числа аргументов
+    # print(args) # по индексу, либо перебором в цикле
+    # if len(args) == 0:
+    #     return 0
+    if not args:
+        return first
+    result = first
+    for arg in args:
+        result *= arg
+    return result
+
+
+def fio(name, surname):
+    return f'{name} {surname}'
+
+
+print(fio(surname='Бендер', name='Остап'))
+print(multy(2, 3, 4, first='*'))
+
 # При распаковке '*' может быть только одна
-def coordinates() -> tuple:
-    return 5.4, 3.2, 3.8, 7.2, 4.6
-
-
-x, y, *rest = coordinates()  # распаковка
-print(f'x = {x}, y = {y}, rest = {rest}')
-
-*names, surname = 'Остап Сулейман Бендер'.split()
-print(names, surname)
+# def coordinates() -> tuple:
+#     return 5.4, 3.2, 3.8, 7.2, 4.6
+#
+#
+# x, y, *rest = coordinates()  # распаковка
+# print(f'x = {x}, y = {y}, rest = {rest}')
+#
+# *names, surname = 'Остап Сулейман Бендер'.split()
+# print(names, surname)
 
 # Применяем is на практике
 # def print_array(array: list, start: int = None):
