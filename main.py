@@ -1,215 +1,47 @@
-# ДЗ: Функция: число словами 56 -> пятьдесят шесть
-def num_to_word(num):
-    if str(num) > 3:
-        return
-    e = num % 10
-    le = ['один', 'два']
+# Функция с аннотацией
+num_to_str = {
+    0: 'ноль',
+    1: 'один',
+    2: 'два',
+    3: 'три',
+    4: 'четыре',
+    5: 'пять',
+    6: 'шесть',
+    7: 'семь',
+    8: 'восемь',
+    9: 'девять',
+    10: 'десять',
+    11: 'одиннадцать',
+    12: 'двенадцать',
+    13: 'тринадцать',
+    14: 'четырнадцать',
+    15: 'пятнадцать',
+    16: 'шестнадцать',
+    17: 'семнадцать',
+    18: 'восемнадцать',
+    19: 'девятнадцать',
+    20: 'двадцать',
+    30: 'тридцать',
+    40: 'сорок',
+    50: 'пятьдесят',
+    60: 'шестьдесят',
+    70: 'семьдесят',
+    80: 'восемьдесят',
+    90: 'девяносто'
+}
 
 
-# Функции (Do not Repeat Yourself)
-# Return Value
-def square(num):
-    return num ** 2
+def number_to_words(n: int) -> str:
+    """
+    Функция, принимающая число и возвращающее его словами
+    :param n: двузначное число
+    :return: это число словами
+    """
+    if len(str(n)) > 2:
+        return 'Введите двузначное число'
+    if len(str(n)) == 1 or n in num_to_str:
+        return num_to_str[int(n)]
+    return num_to_str[int(str(n)[0] + '0')] + ' ' + num_to_str[int(str(n)[1])]
 
 
-def even_odd(num):
-    if num % 2 == 0:
-        return 'Чётное'
-    return 'Нечётное'
-
-
-def print_string(s=None):
-    if s is None:
-        return
-    print(s)
-
-
-t = square(5)
-print(even_odd(5))
-print(t)
-
-# Scope (local or global)
-# Синтаксис:
-# def <имя функции>([параметры]):
-#     команды
-# person = 'Пётр'  # глобальная
-# count = 0
-#
-#
-# def greet_to_name(name='noname'):
-#     print('Привет,', name)
-#     print(count)
-#
-#
-# def increment():
-#     global count
-#     count += 1
-#
-#
-# def print_list(array=None):
-#     if array is None:
-#         array = []
-#     for item in array:
-#         print(item)
-#
-#
-# # increment()
-# greet_to_name()
-# print_list()
-
-# Словари
-# Частотный анализ
-#
-# res = {}
-#
-# text = """Минтруд России подготовил проект календаря
-# праздничных и выходных дней на 2026 год, в соответствии с которым новогодние праздники
-# продлятся 12 дней - с 31 декабря 2025 года по 11 января 2026 года,
-#  говорится в сообщении пресс-службы министерства.
-# """
-#
-# commas = (',', '!', '.', '?', '-', ':')
-# for x in commas:
-#     text = text.replace(x, '')
-#
-# lst = sorted(text.strip().lower().split())
-#
-# for item in lst:
-#     if item in res.keys():
-#         res[item] += 1
-#     else:
-#         res[item] = 1
-#
-# print('Частотный анализ слов текста')
-# for k, v in res.items():
-#     print(f'\t{k}: {v}')
-
-
-# Пустой словарь
-# 1. d = {}
-# 2. d = dict()
-# Предзаполненный словарь
-# d = {
-#     'table': ['таблица', 'стол'],
-#     'well': ['хорошо', 'колодец'],
-#     'chair': 'стул',
-#     'apple': 'яблоко',
-#     1: 'один',
-#     (55.75, 37.5): 'Москва'
-# }
-#
-# print(d[(55.75, 37.5)])
-#
-# print(d['well'][0])
-# if type(d['well']) == list:
-#     d['well'].append('скважина')
-# d['plum'] = 'слива'
-# print(d['plum'])
-# del d['well']
-#
-# deleted_item = d.pop('apple')
-#
-# print('Удалился элемент:', deleted_item)
-#
-# print('Есть ли стул в словаре')
-# if 'стул' in d.values():
-#     print('Да, есть')
-#
-# print('Доступ к несуществующему ключу без "исключений"')
-# pear = d.get('pear', 'Груши нет')
-# print('Где груша: ', pear)
-#
-# # Перебор по умолчанию
-# for key in d.keys():  # d.keys()
-#     print(key, '->', d[key])
-#
-# # Перебор пар "ключ-значение"
-# for k, v in d.items():
-#     print(k, '->', v)
-#
-# print(d.keys())  # список ключей (list)
-# print(d.values())  # список значений (list)
-# print(d.items())  # список пар (ключ - значение)
-
-""" Методы словаря   
-['clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 
- 'pop', 'popitem', 'setdefault', 'update', 'values']
-"""
-
-# print(d) # - словарь целиком "как есть"
-
-
-# N = 3
-# matrix = [[i + j for j in range(N)] for i in range(1, 10, 3)]
-# print(matrix)
-
-# matrix = []
-#
-# start = 1
-# N = 4
-#
-# for i in range(N):
-#     table = []
-#     for j in range(start, start + N):
-#         table.append(j)
-#     matrix.append(table)
-#     start += N
-#
-# print(matrix)
-
-# N = 3
-# # matrix = [
-# #     [1, 2, 3],
-# #     [4, 5, 6],
-# #     [7, 8, 9],
-# # ]
-#
-# matrix = [[1] * N for _ in range(N)]
-# print(matrix)
-# # обход 2-мерного списка (матрицы)
-# count = 1
-# for row in range(len(matrix)):
-#     for col in range(len(matrix[row])):
-#         matrix[row][col] = count
-#         count += 1
-# print(matrix)
-
-# text = 'Списочные выражения применяются для эффективности кода'
-
-# res = [a for a in text.split() if (text.index(a) + 1) % 3 == 0]
-# res = [a for a in text.split()[2::3]]
-# операции со списком
-# print(res)
-
-# squares = []
-# for i in range(10):
-#     squares.append(i ** 2)
-
-# список квадратов чисел
-# squares = [i ** 2 for i in range(10)]
-
-# список квадратов чётных чисел
-# squares = [i ** 2 for i in range(10) if i % 2 == 0]
-# print(*squares, sep=', ')
-#
-# # произведение i и j
-# print([i * j for i in range(3) for j in range(3)])
-#
-# n = '100 200 300 400 500 600 700 800 900'
-# approved = [500, 800]
-# a = [int(i) for i in n.split() if int(i) in approved]
-# # какие-то действия со списком a
-# print(a)
-
-############################################################
-
-# # Фраза: ну?, я типо, вообще: короче, не понимаю этот язык!
-# commas = (',', '!', '.', '?', '-', ':')
-# stop_words = {'ну', 'типо', 'короче', 'не'}
-# message = input('Введите сообщение: ')
-# for z in commas:
-#     message = message.replace(z, '')
-# lst = message.split()  # все слова
-# res = sorted(set(lst) - stop_words)
-# for a, b in enumerate(res, 1):
-#     print(f'{a}. {b}')
+print(number_to_words(33))
