@@ -1,66 +1,103 @@
-# Функция, с переменным числом аргументов
-def multy(first, *args):
-    # print(len(args)) # подсчёт числа аргументов
-    # print(args) # по индексу, либо перебором в цикле
-    # if len(args) == 0:
-    #     return 0
-    if not args:
-        return first
-    result = first
-    for arg in args:
-        result *= arg
-    return result
+# Функция, как объект
+# Передаётся в другие функции: функции высшего порядка
+
+# Функция критерия отбора элементов списка
+# Критерий: длина слова
+def is_longer_six(word):
+    return len(word) > 6
 
 
-def calc(*args: tuple, operator: str = '+') -> any:
-    match operator:
-        case '+':
-            result = 0
-            for i in args:
-                result += i
-        case '*':
-            result = 1
-            for i in args:
-                result *= i
-        case _:  # случай по default
-            return 'так нельзя'
-    return result
+# Критерий - первая буква
+def is_first_letter_a(word):
+    return word[0] == 'а'
 
 
-def fio(name, surname):
-    return f'{name} {surname}'
+def square(num):
+    return num ** 2
 
 
-def sandwich(type_of_meal, with_onion=False, with_tomato=False):
-    print('Булочка')
-    if with_onion:
-        print('Лук')
-    print(type_of_meal)
-    if with_tomato:
-        print('Помидоры')
-    print('Булочка')
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9] # 123456789
+squares = map(square, nums)
+print(list(squares))
 
 
-def print_any(*args, **kwargs):
-    for i in args:
-        print(i)
-    for k, v in kwargs.items():
-        print(k, '=', v)
 
+words = ['В', 'этом', 'списке', 'останутся', 'слова',
+         'длина', 'которых', 'больше', 'шести']
 
-def profile(name, surname, city, *children, **additional):
-    print('Имя:', name)
-    print(f'Фамилия: {surname}')
-    print(f'Из города: {city}')
-    if len(children) > 0:
-        print('Дети:', ', '.join(children))
-    if 'hobbie' in additional:
-        print('Хобби:', ', '.join(additional['hobbie']))
-    # print(additional)
+fruits = ['арбуз', 'ананас', 'банан', 'ежевика', 'малина']
 
+result = list(filter(is_longer_six, words))
+print(result)
 
-profile('Дмитрий', 'Колесов', 'Волгоград',
-        'Мария', 'Пётр', hobbie=['Филателия', 'Шахматы'])
+res = list(filter(is_first_letter_a, fruits))
+print(res)
+
+for word in filter(is_longer_six, words):
+    print(word)
+
+# def multy(first, *args):
+#     # print(len(args)) # подсчёт числа аргументов
+#     # print(args) # по индексу, либо перебором в цикле
+#     # if len(args) == 0:
+#     #     return 0
+#     if not args:
+#         return first
+#     result = first
+#     for arg in args:
+#         result *= arg
+#     return result
+#
+#
+# def calc(*args: tuple, operator: str = '+') -> any:
+#     match operator:
+#         case '+':
+#             result = 0
+#             for i in args:
+#                 result += i
+#         case '*':
+#             result = 1
+#             for i in args:
+#                 result *= i
+#         case _:  # случай по default
+#             return 'так нельзя'
+#     return result
+#
+#
+# def fio(name, surname):
+#     return f'{name} {surname}'
+#
+#
+# def sandwich(type_of_meal, with_onion=False, with_tomato=False):
+#     print('Булочка')
+#     if with_onion:
+#         print('Лук')
+#     print(type_of_meal)
+#     if with_tomato:
+#         print('Помидоры')
+#     print('Булочка')
+#
+#
+# def print_any(*args, **kwargs):
+#     for i in args:
+#         print(i)
+#     for k, v in kwargs.items():
+#         print(k, '=', v)
+#
+#
+# def profile(name, surname, city, *children, **additional):
+#     print('Имя:', name)
+#     print(f'Фамилия: {surname}')
+#     print(f'Из города: {city}')
+#     if len(children) > 0:
+#         print('Дети:', ', '.join(children))
+#     if 'hobbie' in additional:
+#         print('Хобби:', ', '.join(additional['hobbie']))
+#     # print(additional)
+#
+#
+# profile('Дмитрий', 'Колесов', 'Волгоград',
+#         'Мария', 'Пётр', hobbie=['Филателия', 'Шахматы'])
 # print_any('Дмитрий', 'Колесов', city='Москва', age=27)
 # sandwich('котлета', with_onion=True)
 # print(fio(surname='Бендер', name='Остап'))
