@@ -1,15 +1,27 @@
+# Возврат нескольких значений из функции
+# При распаковке '*' может быть только одна
+def coordinates() -> tuple:
+    return 5.4, 3.2, 3.8, 7.2, 4.6
+
+
+x, y, *rest = coordinates()  # распаковка
+print(f'x = {x}, y = {y}, rest = {rest}')
+
+*names, surname = 'Остап Сулейман Бендер'.split()
+print(names, surname)
+
 # Применяем is на практике
-def print_array(array: list, start: int = None):
-    if start is not None and start > len(array):
-        return
-    if start is None:
-        start = 0
-    for i in range(start, len(array)):
-        print(array[i])
-
-
-a = [1, 2, 3]
-print_array(a)
+# def print_array(array: list, start: int = None):
+#     if start is not None and start > len(array):
+#         return
+#     if start is None:
+#         start = 0
+#     for i in range(start, len(array)):
+#         print(array[i])
+#
+#
+# a = [1, 2, 3]
+# print_array(a)
 
 # Оператор is: a is b -> когда a и b - один и тот же объект
 # my_refregirator = ['колбаса', 'сыр', 'масло']
