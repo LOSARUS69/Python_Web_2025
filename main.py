@@ -1,5 +1,5 @@
 # Функция, с переменным числом аргументов
-def multy(*args, first=0):
+def multy(first, *args):
     # print(len(args)) # подсчёт числа аргументов
     # print(args) # по индексу, либо перебором в цикле
     # if len(args) == 0:
@@ -12,12 +12,39 @@ def multy(*args, first=0):
     return result
 
 
+def calc(*args: tuple, operator: str = '+') -> any:
+    match operator:
+        case '+':
+            result = 0
+            for i in args:
+                result += i
+        case '*':
+            result = 1
+            for i in args:
+                result *= i
+        case _:  # случай по default
+            return 'так нельзя'
+    return result
+
+
 def fio(name, surname):
     return f'{name} {surname}'
 
 
+def sandwich(type_of_meal, with_onion=False, with_tomato=False):
+    print('Булочка')
+    if with_onion:
+        print('Лук')
+    print(type_of_meal)
+    if with_tomato:
+        print('Помидоры')
+    print('Булочка')
+
+
+sandwich('котлета', with_onion=True)
 print(fio(surname='Бендер', name='Остап'))
-print(multy(2, 3, 4, first='*'))
+print(multy(2, 3, 4))
+print(calc(1, 2, 3, operator='*'))
 
 # При распаковке '*' может быть только одна
 # def coordinates() -> tuple:
