@@ -1,7 +1,30 @@
 # Анонимные функции (однострочники, безымянные)
 # lambda-функции
 # lambda <аргументы>: <выражение>
+ENGLISH_ABC = [chr(ch) for ch in range(ord('a'), ord('z') + 1)]
+RUSSIAN_ABC = [chr(ch) for ch in range(ord('а'), ord('я') + 1)] + ['ё']
+ABC = (set(ENGLISH_ABC) ^ set(RUSSIAN_ABC) ^
+       set([x.upper() for x in ENGLISH_ABC]) ^
+       set([x.upper() for x in RUSSIAN_ABC]))
+# print(ABC)
+# print(ENGLISH_ABC)
+# print(RUSSIAN_ABC)
+txt = 'Однажды, теперь и потом.'
 
+
+def remove_punctuation(text):
+    return ''.join(filter(lambda x: x in ABC ^ {' '}, text))
+
+
+def get_words(text: str) -> list:
+    return remove_punctuation(text).split()
+
+
+def long_words(text, length=4) -> filter:
+    return filter(lambda word: len(word) >= length, get_words(text))
+
+
+print(list(long_words(txt)))
 
 # Функция критерия отбора элементов списка
 # Критерий: длина слова
@@ -25,30 +48,30 @@
 # string_contains = lambda s: 'ан' in s
 
 # print(string_contains('банан'))
-
-nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]  # -> 123456789
-res = ''.join(map(str, nums))
-print(res)
-
-words = ['В', 'этом', 'списке', 'останутся', 'слова',
-         'длина', 'которых', 'больше', 'шести']
-
-fruits = ['арбуз', 'ананас', 'банан', 'ежевика', 'малина']
-
-result = list(filter(lambda word: len(word) > 6, words))
-print(result)
-
-res = list(filter(lambda x: x[0] == 'а', fruits))
-print(res)
-
-res = list(filter(lambda s: 'ан' in s, fruits))
-print(res)
-
-# в одну строку вывести список квадратов чисел от 3 до 15
-# [9, 16, 25.....]
-# res = list(map(lambda y: y ** 2, range(3, 16)))
-res = [y ** 2 for y in range(3, 16)]
-print(res)
-
-long_words = [word for word in words if len(word) > 6]
-print(long_words)
+#
+# nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]  # -> 123456789
+# res = ''.join(map(str, nums))
+# print(res)
+#
+# words = ['В', 'этом', 'списке', 'останутся', 'слова',
+#          'длина', 'которых', 'больше', 'шести']
+#
+# fruits = ['арбуз', 'ананас', 'банан', 'ежевика', 'малина']
+#
+# result = list(filter(lambda word: len(word) > 6, words))
+# print(result)
+#
+# res = list(filter(lambda x: x[0] == 'а', fruits))
+# print(res)
+#
+# res = list(filter(lambda s: 'ан' in s, fruits))
+# print(res)
+#
+# # в одну строку вывести список квадратов чисел от 3 до 15
+# # [9, 16, 25.....]
+# # res = list(map(lambda y: y ** 2, range(3, 16)))
+# res = [y ** 2 for y in range(3, 16)]
+# print(res)
+#
+# long_words = [word for word in words if len(word) > 6]
+# print(long_words)
