@@ -1,7 +1,19 @@
 # Анонимные функции (однострочники, безымянные)
 # lambda-функции
 # lambda <аргументы>: <выражение>
-# словарные выражения
+# ключ сортировки
+
+fruits = ['ананас', 'банан', 'ежевика', 'арбуз', 'малина']
+
+# print(sorted(fruits, key=lambda s: (len(s), s[-1])))
+
+goods = [
+    ['Утюг', 1000, 2],
+    ['Фен', 1000, 5],
+    ['Телевизор', 8000, 3]
+]
+
+print(sorted(goods, key=lambda s: (s[1], s[2], s[0])))
 
 # numbers = [1, 2, 3, 4, 5]  # list(range(1, 6)
 # squares = {n: n ** 2 for n in numbers}
@@ -24,45 +36,45 @@
 # print(sorted(fruits, key=lambda ch: len(ch)))
 
 
-ENGLISH_ABC = [chr(ch) for ch in range(ord('a'), ord('z') + 1)]
-RUSSIAN_ABC = [chr(ch) for ch in range(ord('а'), ord('я') + 1)] + ['ё']
-ABC = (set(ENGLISH_ABC) ^ set(RUSSIAN_ABC) ^
-       set([x.upper() for x in ENGLISH_ABC]) ^
-       set([x.upper() for x in RUSSIAN_ABC]))
-# print(ABC)
-# print(ENGLISH_ABC)
-# print(RUSSIAN_ABC)
-txt = ('Я знаю, что я ничего не знаю. '
-       'Но другие не знают и этого. А значит, я знаю больше, чем они.')
-
-d = {}
-
-
-def remove_punctuation(text):
-    return ''.join(filter(lambda x: x in ABC ^ {' '}, text))
-
-
-def get_words(text: str) -> list:
-    return remove_punctuation(text).split()
-
-
-def long_words(text, length=4) -> filter:
-    return filter(lambda word: len(word) >= length, get_words(text))
-
-
-words = get_words(txt.lower())
-
-# Считаем частоту слов
-for word in words:
-    if word in d:
-        d[word] += 1
-    else:
-        d[word] = 1
-
-res = {k: v for k, v in sorted(d.items(), key=lambda item: item[1], reverse=True)}
-
-for k, v in res.items():
-    print(k, v)
+# ENGLISH_ABC = [chr(ch) for ch in range(ord('a'), ord('z') + 1)]
+# RUSSIAN_ABC = [chr(ch) for ch in range(ord('а'), ord('я') + 1)] + ['ё']
+# ABC = (set(ENGLISH_ABC) ^ set(RUSSIAN_ABC) ^
+#        set([x.upper() for x in ENGLISH_ABC]) ^
+#        set([x.upper() for x in RUSSIAN_ABC]))
+# # print(ABC)
+# # print(ENGLISH_ABC)
+# # print(RUSSIAN_ABC)
+# txt = ('Я знаю, что я ничего не знаю. '
+#        'Но другие не знают и этого. А значит, я знаю больше, чем они.')
+#
+# d = {}
+#
+#
+# def remove_punctuation(text):
+#     return ''.join(filter(lambda x: x in ABC ^ {' '}, text))
+#
+#
+# def get_words(text: str) -> list:
+#     return remove_punctuation(text).split()
+#
+#
+# def long_words(text, length=4) -> filter:
+#     return filter(lambda word: len(word) >= length, get_words(text))
+#
+#
+# words = get_words(txt.lower())
+#
+# # Считаем частоту слов
+# for word in words:
+#     if word in d:
+#         d[word] += 1
+#     else:
+#         d[word] = 1
+#
+# res = {k: v for k, v in sorted(d.items(), key=lambda item: item[1], reverse=True)}
+#
+# for k, v in res.items():
+#     print(k, v)
 
 # print(list(long_words(txt)))
 
