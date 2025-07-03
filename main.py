@@ -1,6 +1,25 @@
 # Анонимные функции (однострочники, безымянные)
 # lambda-функции
 # lambda <аргументы>: <выражение>
+# словарные выражения
+
+numbers = [1, 2, 3, 4, 5]  # list(range(1, 6)
+squares = {n: n ** 2 for n in numbers}
+print(squares)
+
+squares = {n: n ** 2 for n in range(1, 10) if n % 2 == 0}
+print(squares)
+
+source_dict = {
+    'x': 1,
+    'y': 2,
+    'z': 3,
+}
+
+dest_dict = {k: v * 2 for k, v in source_dict.items()}
+print(dest_dict)
+
+
 ENGLISH_ABC = [chr(ch) for ch in range(ord('a'), ord('z') + 1)]
 RUSSIAN_ABC = [chr(ch) for ch in range(ord('а'), ord('я') + 1)] + ['ё']
 ABC = (set(ENGLISH_ABC) ^ set(RUSSIAN_ABC) ^
@@ -23,8 +42,7 @@ def get_words(text: str) -> list:
 def long_words(text, length=4) -> filter:
     return filter(lambda word: len(word) >= length, get_words(text))
 
-
-print(list(long_words(txt)))
+# print(list(long_words(txt)))
 
 # Функция критерия отбора элементов списка
 # Критерий: длина слова
