@@ -6,7 +6,16 @@ import sys
 
 data = [d.strip('\n') for d in sys.stdin.readlines()]
 
-print(data)
+temp = [] # индекс строки в data и число слов в виде кортежей
+for i, s in enumerate(data):
+    temp.append((i, len(s.split())))
+
+temp.sort(key=lambda x:x[1])
+
+index = temp[0][0]
+res = sorted(data[index].split())
+
+print(*res, sep='-')
 
 
 # any - любой элемент коллекции вернул True
