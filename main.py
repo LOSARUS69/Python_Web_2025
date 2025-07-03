@@ -1,21 +1,85 @@
-# Анонимные функции (однострочники, безымянные)
-# lambda-функции
-# lambda <аргументы>: <выражение>
-# потоковый ввод sys.stdin (Ctrl + D)
-import sys
+# Черепашья графика
+import turtle as t
 
-data = [d.strip('\n') for d in sys.stdin.readlines()]
 
-temp = [] # индекс строки в data и число слов в виде кортежей
-for i, s in enumerate(data):
-    temp.append((i, len(s.split())))
+# N = 5
+# t.speed(0)
+# colors = ['red', 'purple', 'blue', 'green', 'yellow', 'orange']
+#
+# t.bgcolor('black')
+# angle = 360 // len(colors) - 1
+#
+# for x in range(200):
+#     t.pencolor(colors[x % len(colors)])
+#     t.width(x // 100 + 1)
+#     t.forward(x)
+#     t.left(angle)
 
-temp.sort(key=lambda x:x[1])
 
-index = temp[0][0]
-res = sorted(data[index].split())
+# t.penup()
+# t.goto(100, 200)
+# t.pendown()
 
-print(*res, sep='-')
+# def square(side):
+#     for _ in range(4):
+#         t.forward(side)
+#         t.right(90)
+#
+#
+# def flower():
+#     for _ in range(36):
+#         t.circle(50)
+#         t.right(10)
+#
+#
+# def tree(length):
+#     if length < 10:
+#         return
+#     t.forward(length)
+#     t.left(30)
+#     tree(length * 0.7)
+#     t.right(60)
+#     tree(length * 0.7)
+#     t.left(30)
+#     t.backward(length)
+#
+# t.left(90)
+# tree(100)
+#
+#
+# # flower()
+#
+# t.mainloop()
+
+# def factorial(count): # 5! = 1 * 2 * 3 * 4 * 5 = 120
+#     result = 1
+#     for i in range(2, count + 1):
+#         result *= i
+#     return result
+
+# def factorial(x):
+#     if x == 1 or x == 0:
+#         return 1
+#     return x * factorial(x - 1)
+#
+#
+# for x in range(10):
+#     print(x, factorial(x))
+
+# import sys
+#
+# data = [d.strip('\n') for d in sys.stdin.readlines()]
+#
+# temp = [] # индекс строки в data и число слов в виде кортежей
+# for i, s in enumerate(data):
+#     temp.append((i, len(s.split())))
+#
+# temp.sort(key=lambda x:x[1])
+#
+# index = temp[0][0]
+# res = sorted(data[index].split())
+#
+# print(*res, sep='-')
 
 
 # any - любой элемент коллекции вернул True
