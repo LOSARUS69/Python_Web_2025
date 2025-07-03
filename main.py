@@ -1,19 +1,30 @@
 # Анонимные функции (однострочники, безымянные)
 # lambda-функции
 # lambda <аргументы>: <выражение>
-# ключ сортировки
+# проверка коллекций: any(), all()
 
-fruits = ['ананас', 'банан', 'ежевика', 'арбуз', 'малина']
+# any - любой элемент коллекции вернул True
+# all - все элементы коллекции вернули True
 
-# print(sorted(fruits, key=lambda s: (len(s), s[-1])))
+print(all([1, 2, 3]))  # все элементы ненулевые
+print(all([1, 2, 0]))  # один элемент нулевой
+print(all([1]))
 
-goods = [
-    ['Утюг', 1000, 2],
-    ['Фен', 1000, 5],
-    ['Телевизор', 8000, 3]
-]
+words = 'один два три'.split() # > 3
+# list_for_analize = list(map(lambda x: len(x) > 2, words))
+print(any(list(map(lambda x: len(x) > 5, words))))
 
-print(sorted(goods, key=lambda s: (s[1], s[2], s[0])))
+# fruits = ['ананас', 'банан', 'ежевика', 'арбуз', 'малина']
+#
+# # print(sorted(fruits, key=lambda s: (len(s), s[-1])))
+#
+# goods = [
+#     ['Утюг', 1000, 2],
+#     ['Фен', 1000, 5],
+#     ['Телевизор', 8000, 3]
+# ]
+
+# print(sorted(goods, key=lambda s: (s[1], s[2], s[0])))
 
 # numbers = [1, 2, 3, 4, 5]  # list(range(1, 6)
 # squares = {n: n ** 2 for n in numbers}
