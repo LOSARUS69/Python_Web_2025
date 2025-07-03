@@ -1,18 +1,24 @@
 # Анонимные функции (однострочники, безымянные)
 # lambda-функции
 # lambda <аргументы>: <выражение>
-# проверка коллекций: any(), all()
+# потоковый ввод sys.stdin (Ctrl + D)
+import sys
+
+data = [d.strip('\n') for d in sys.stdin.readlines()]
+
+print(data)
+
 
 # any - любой элемент коллекции вернул True
 # all - все элементы коллекции вернули True
 
-print(all([1, 2, 3]))  # все элементы ненулевые
-print(all([1, 2, 0]))  # один элемент нулевой
-print(all([1]))
-
-words = 'один два три'.split() # > 3
+# print(all([1, 2, 3]))  # все элементы ненулевые
+# print(all([1, 2, 0]))  # один элемент нулевой
+# print(all([1]))
+#
+# words = 'один два три'.split() # > 3
 # list_for_analize = list(map(lambda x: len(x) > 2, words))
-print(any(list(map(lambda x: len(x) > 5, words))))
+# print(any(list(map(lambda x: len(x) > 5, words))))
 
 # fruits = ['ананас', 'банан', 'ежевика', 'арбуз', 'малина']
 #
