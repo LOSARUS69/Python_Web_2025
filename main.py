@@ -1,21 +1,30 @@
 # Встроенные библиотеки
 # PyPI - Python Package Index (pypi.org)
+from pprint import pprint
 
-import datetime as dt
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
 
-my_time = dt.time(15, 27, 32)
-print(my_time)
-my_day = dt.date(2025, 7, 4)
-print(my_day)
-my_day_time = dt.datetime.combine(my_day, my_time)
-print(my_day_time)
+pprint(matrix)
 
-date1 = dt.date(2025, 6, 15)
-date2 = dt.date(2025, 7, 3)
-delta = date2 - date1
-
-print(delta)
-
+# import datetime as dt
+#
+# my_time = dt.time(15, 27, 32)
+# print(my_time)
+# my_day = dt.date(2025, 7, 4)
+# print(my_day)
+# my_day_time = dt.datetime.combine(my_day, my_time)
+# print(my_day_time)
+#
+# date1 = dt.date(2025, 6, 15)
+# date2 = dt.date(2025, 7, 3)
+# delta = date2 - date1
+#
+# print(delta)
+#
 # print(dt.datetime.now())
 # print(dt.datetime.now().date())
 # print(dt.datetime.now().time())
