@@ -3,16 +3,39 @@
 # PIL - Python Imagine Library
 # pip freeze > requirements.txt - создание файла зависимости
 # pip install -r requirements.txt - установка списка библиотек
-from PIL import Image
+from PIL import Image, ImageDraw
 
-image = Image.open('images/python.jpg')
+RED = (255, 0, 0)
+POLY = [(50, 50), (150, 50), (180, 120)]
 
-x, y = image.size
-mode = image.mode
-pixels = image.load()  # загрузить таблицу пикселей
+image = Image.new('RGB',
+                  (600, 400),
+                  (0, 0, 255))
 
-print(f'Ширина = {x}, высота = {y}')
-print(f'Цветовая схема: {mode}')
+draw = ImageDraw.Draw(image)
+
+draw.line((0, 0, 600, 400),
+          fill=RED, width=5)
+draw.line((600, 0, 0, 400),
+          fill=RED, width=5)
+draw.rectangle((10, 10, 590, 390),
+               outline=RED, width=10)
+
+draw.ellipse((10, 10, 590, 390),
+               outline=RED, width=10)
+draw.polygon(POLY, outline='green', width=15)
+draw.text((100, 100), 'Текст', fill=RED)
+
+image.save('images/blue.jpg')
+
+# image = Image.open('images/python.jpg')
+#
+# x, y = image.size
+# mode = image.mode
+# pixels = image.load()  # загрузить таблицу пикселей
+#
+# print(f'Ширина = {x}, высота = {y}')
+# print(f'Цветовая схема: {mode}')
 
 # image_rotate = image.rotate(90)
 # image_flip = image.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
@@ -38,7 +61,7 @@ print(f'Цветовая схема: {mode}')
 #         r, g, b = pixels[i, j]
 #         pixels[i, j] = g, b, r
 
-resized.save('images/python2.jpg')
+# resized.save('images/python2.jpg')
 
 # from pprint import pprint
 #
