@@ -1,16 +1,78 @@
 # Встроенные библиотеки
 # PyPI - Python Package Index (pypi.org)
+
+# import random as r
+# r.seed()
+# print(r.random())
+
+# N = 8
+#
+# abc = 'qwertyuiopasdfghjklzxcvbnm'
+# num = '1234567890'
+# spec = '@#$&'
+#
+# abc = list(abc)
+# num = list(num)
+# spec = list(spec)
+#
+# r.shuffle(abc)
+#
+# temp = abc[:N - 3]
+# temp.append(r.choice(abc).upper())
+# temp.append(r.choice(num))
+# temp.append(r.choice(spec))
+# r.shuffle(temp)
+# res = ''.join(temp)
+#
+# print(res)
+
+# lst = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+#
+# for _ in range(10):
+#     print(r.sample(lst, k=5))
+
+# zara = ['\u2680', '\u2681', '\u2682', '\u2683', '\u2684', '\u2685']
+#
+# for _ in range(10):
+#     print(r.choice(zara), r.choice(zara))
+
+# d = {
+#     'a': 1,
+#     'b': 2,
+#     'c': 3,
+# }
+#
+# keys = list(d.keys())
+#
+# key = r.choice(keys)
+# print(d[key])
+
+# lst = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# res = r.choice(lst)
+# print(res)
+
+# print(r.choice(['орёл', 'решка']))
+# print(r.choice('орёл'))
+
+# for _ in range(10):
+#     # print(r.randint(0, 10))
+#     print(r.randrange(0, 10, 2))
+
 # import math as m
 # from math import *
-from math import pi, sqrt, sin, radians
+# from math import pi, sqrt, sin, radians, hypot
+
 # from math import sqrt
 
 # print(dir(m))
 # print(help(m.cos))
 
-print('Число Пи:', pi)
-print('Квадратный корень 4:', sqrt(4))
-print('Синус 30°:', round(sin(radians(30)), 2))
+# print('Число Пи:', pi)
+# print('Квадратный корень 4:', sqrt(4))
+# print('Синус 30°:', round(sin(radians(30)), 2))
+# print('Гипотенуза для 3 и 2: ', hypot(3, 2))
+
 
 # lst = [1, 1, 2, 3, 5]
 # # res = 0
