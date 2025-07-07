@@ -1,3 +1,33 @@
+# Файлы
+# name.txt
+# t - текстовый файл (txt, html, xml)
+# b - бинарные файлы (jpg, avi, mp3)
+# w - write (запись, создаётся)
+# a - append (запись в конец)
+# r - read - чтение
+
+fo = open('info.txt', 'wt', encoding='utf-8')
+
+print(fo.mode)
+print(fo.name)
+print(fo.encoding)
+
+count = fo.write('Этот текст будет в файле!')
+print('В файл записано', count, 'байт!')
+
+fo.close()
+
+
+
+
+
+
+
+
+
+
+
+
 # Пишем и подключаем свои модули
 # from . lib import summ - из текущей директории
 # from .. lib import summ - уровнем выше
@@ -5,11 +35,11 @@
 
 # from package1 import * # для __all__
 # import package1
-from package1 import *
-
-print(greet('Мир!'))
-print(add(3, 7))
-print('Автор')
+# from package1 import *
+#
+# print(greet('Мир!'))
+# print(add(3, 7))
+# print('Автор')
 # print(package1.module._hidden_function())
 
 
