@@ -2,15 +2,27 @@
 # from . lib import summ - из текущей директории
 # from .. lib import summ - уровнем выше
 # from .lib import summ - относительный импорт
-from lib import summ
+
+# from package1 import * # для __all__
+# import package1
+from package1 import *
+
+print(greet('Мир!'))
+print(add(3, 7))
+print('Автор')
+# print(package1.module._hidden_function())
 
 
-def main():
-    print(summ(7, 3))
 
-
-if __name__ == '__main__':
-    main()
+# from lib import summ
+#
+#
+# def main():
+#     print(summ(7, 3))
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 # Работа с формулами:
 # ....
