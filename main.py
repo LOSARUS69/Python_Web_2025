@@ -1,11 +1,49 @@
 # Внешние библиотеки
-# Графика
-# PIL - Python Imagine Library
+# Документы
+# Word - DOCX (python-docx)
 # pip freeze > requirements.txt - создание файла зависимости
 # pip install -r requirements.txt - установка списка библиотек
-from PIL import Image, ImageFilter, ImageEnhance
+from docx import Document
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.shared import Cm, Inches, Mm, Pt # Для размеров
 
-orig = Image.open('images/python.jpg').convert('RGB')
+doc = Document()  # создание экземпляра документа
+
+# Добавление заголовка
+doc.add_heading('Отчёт за месяц', 1)
+paragraph = doc.add_paragraph()
+paragraph = doc.add_paragraph('В этом отчёте представлены')
+# run - что-то внутри абзаца
+paragraph.add_run(' ключевые показатели').bold = True
+# Новый абзац для списка
+paragraph = doc.add_paragraph()
+paragraph_format = paragraph.paragraph_format
+paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
+# Маркированный
+paragraph = doc.add_paragraph('Первый пункт', style='List Bullet')
+paragraph = doc.add_paragraph('Второй пункт', style='List Bullet')
+
+# Нумерованный
+paragraph = doc.add_paragraph('Первый пункт', style='List Number')
+paragraph = doc.add_paragraph('Второй пункт', style='List Number')
+
+paragraph = doc.add_paragraph()
+# Добавляем таблицу
+table = doc.add_table(rows=3, cols=3)
+
+# Заполняем
+for i, row in enumerate(table.rows):
+    for j, cell in enumerate(table.columns):
+        cell.text = f'Строка {i + 1}, Столбец {j + 1}'
+
+doc.add_paragraph()
+doc.add_picture('images/sunny_day.jpg', width=Mm(105))
+
+doc.save('docs/report.docx')
+
+# from PIL import Image, ImageFilter, ImageEnhance
+#
+# orig = Image.open('images/python.jpg').convert('RGB')
 # Размытие
 # blur_image = orig.filter(ImageFilter.GaussianBlur(radius=8))
 # blur_image.show()
@@ -18,8 +56,6 @@ orig = Image.open('images/python.jpg').convert('RGB')
 # Получить контуры
 # edges = orig.filter(ImageFilter.FIND_EDGES)
 # edges.show()
-
-
 
 
 # from PIL import Image
