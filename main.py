@@ -1,8 +1,16 @@
-# Внешние библиотеки
-# Документы (электронные таблицы)
-# Excel (openpyxl)
-# pip freeze > requirements.txt - создание файла зависимости
-# pip install -r requirements.txt - установка списка библиотек
+# Пишем и подключаем свои модули
+# from . lib import summ - из текущей директории
+# from .. lib import summ - уровнем выше
+# from .lib import summ - относительный импорт
+from lib import summ
+
+
+def main():
+    print(summ(7, 3))
+
+
+if __name__ == '__main__':
+    main()
 
 # Работа с формулами:
 # ....
@@ -17,16 +25,16 @@
 # ws['A1'].alignment = Alignment(horizontal="center")
 
 # Чтение данных
-from openpyxl import load_workbook
-
-wb = load_workbook('docs/employees.xlsx')
-ws = wb.active
-
-rows_count = ws.max_row # число заполненных строк
-
-for row in ws.iter_rows(values_only=True):
-    fio, pos, dept = row
-    print(f'Фамилия: {fio}, Должность: {pos}, Отдел: {dept}')
+# from openpyxl import load_workbook
+#
+# wb = load_workbook('docs/employees.xlsx')
+# ws = wb.active
+#
+# rows_count = ws.max_row # число заполненных строк
+#
+# for row in ws.iter_rows(min_row=2, values_only=True):
+#     fio, pos, dept = row
+#     print(f'Фамилия: {fio}, Должность: {pos}, Отдел: {dept}')
 
 # from openpyxl import load_workbook
 #
