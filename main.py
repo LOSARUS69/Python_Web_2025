@@ -7,10 +7,25 @@
 # r - read - чтение (по умолчанию)
 # print(*args, sep=' ', end='\n', file=None, flush=False)
 
-fo = open('info.txt', 'at', encoding='utf-8')
+fo = open('info.txt', 'rt', encoding='utf-8')
 
 # fo.write(' Хороший текст.')
-print('\nА вот ещё одна строка.', file=fo)
+# print('\nА вот ещё одна строка.', file=fo)
+
+# Построчное чтение №1
+# while text := fo.readline():
+#     print(text.rstrip('\n'))
+
+# Построчное чтение №2
+# lst = fo.readlines()
+# lst = list(map(lambda x: x.strip('\n'), lst))
+# print(lst)
+
+# Построчное чтение №3
+text = fo.read()
+lst = text.splitlines()
+print(lst)
+
 
 fo.close()
 
