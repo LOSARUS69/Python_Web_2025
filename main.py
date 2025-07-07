@@ -9,15 +9,26 @@ from docxtpl import DocxTemplate
 doc = DocxTemplate('docs/template.docx')
 
 # Данные для подстановки в шаблон
-content = {
-    'company': 'OOO "Монолит"',
-    'employee': 'Петров Д.И.',
-    'position': 'Менеджер',
-    'date': '01/01/2025'
-}
+content = [
+    {
+        'company': 'OOO "Монолит"',
+        'employee': 'Петров Д.И.',
+        'position': 'Менеджер',
+        'date': '01/01/2025'
+    },
+    {
+        'company': 'OOO "Арсенал"',
+        'employee': 'Иванов Д.И.',
+        'position': 'Инженер',
+        'date': '01/01/2025'
+    }
+]
 
-doc.render(content)
-doc.save('docs/about.docx')
+count = 1
+for item in content:
+    doc.render(item)
+    doc.save(f'docs/about{count}.docx')
+    count += 1
 
 # from docx import Document
 # from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -49,7 +60,7 @@ doc.save('docs/about.docx')
 #
 # # Заполняем
 # for i, row in enumerate(table.rows):
-#     for j, cell in enumerate(table.columns):
+#     for j, cell in enumerate(table.cells):
 #         cell.text = f'Строка {i + 1}, Столбец {j + 1}'
 #
 # doc.add_paragraph()
