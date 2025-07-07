@@ -9,6 +9,13 @@
 
 import os
 
+path = os.getcwd()  # get current working directory
+os.chdir(path + '/images')
+
+all_files = [f for f in os.listdir('.') if f.startswith('py')]
+os.chdir('..')
+print(all_files)
+
 # path = os.getcwd()  # get current working directory
 # print(path)
 #
