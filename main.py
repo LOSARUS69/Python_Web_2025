@@ -4,18 +4,28 @@
 # b - бинарные файлы (jpg, avi, mp3)
 # w - write (запись, создаётся)
 # a - append (запись в конец)
-# r - read - чтение
+# r - read - чтение (по умолчанию)
 
-fo = open('info.txt', 'wt', encoding='utf-8')
+fo = open('info.txt', 'rt', encoding='utf-8')
 
-print(fo.mode)
-print(fo.name)
-print(fo.encoding)
-
-count = fo.write('Этот текст будет в файле!')
-print('В файл записано', count, 'байт!')
+text = fo.read(11)
+fo.read(6)
+text += fo.read(7)
+print('Вот, что было в файле', end=': ')
+print(text)
 
 fo.close()
+
+# fo = open('info.txt', 'wt', encoding='utf-8')
+#
+# print(fo.mode)
+# print(fo.name)
+# print(fo.encoding)
+#
+# count = fo.write('Этот текст будет в файле!')
+# print('В файл записано', count, 'байт!')
+#
+# fo.close()
 
 
 
