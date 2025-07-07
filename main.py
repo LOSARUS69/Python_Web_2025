@@ -19,7 +19,8 @@ text = 'Солнечный день'
 # draw.ellipse((470, -120, 800, 120), outline='yellow', fill='yellow')
 draw.circle((600, 0), 100, fill='yellow')
 font = ImageFont.truetype(
-    font='arial.ttf',  # можно использовать любой установленный шрифт
+    # font='arial.ttf',  # можно использовать любой установленный шрифт
+    font='fonts/Geisha.ttf',
     size=50
 )
 # Получаем размеры текста
@@ -31,4 +32,5 @@ y = (H - h) // 2
 
 draw.text((x, y), text, fill=(255, 255, 0), font=font)
 
-image.save('images/sunny_day.jpg')
+# image.save('images/sunny_day.jpg')
+image.show()
