@@ -1,4 +1,4 @@
-# Файлы
+# Файлы и OC-модуль
 # name.txt
 # t - текстовый файл (txt, html, xml)
 # b - бинарные файлы (jpg, avi, mp3)
@@ -7,7 +7,32 @@
 # r - read - чтение (по умолчанию)
 # print(*args, sep=' ', end='\n', file=None, flush=False)
 
-fo = open('info.txt', 'rt', encoding='utf-8')
+import os
+
+# path = os.getcwd()  # get current working directory
+# print(path)
+#
+# os.chdir(path + '/images')
+# print(os.getcwd())
+#
+# os.chdir('..') # на уровень выше
+# os.chdir(path + '/fonts')
+# print(os.getcwd())
+
+
+# "Мягкое" создание директории (вместо mkdirs)
+# os.makedirs('libs', exist_ok=True)
+
+# if os.path.exists('libs'):  # проверка существования пути
+#     os.rmdir('libs')
+
+# Открытие с менеджером контеста
+# with open('info.txt', 'rt', encoding='utf-8') as fo:
+#     text = fo.read()
+#     lst = text.splitlines()
+#     print(lst)
+# Проследит, чтобы файл закрылся
+
 
 # fo.write(' Хороший текст.')
 # print('\nА вот ещё одна строка.', file=fo)
@@ -22,12 +47,12 @@ fo = open('info.txt', 'rt', encoding='utf-8')
 # print(lst)
 
 # Построчное чтение №3
-text = fo.read()
-lst = text.splitlines()
-print(lst)
-
-
-fo.close()
+# text = fo.read()
+# lst = text.splitlines()
+# print(lst)
+#
+#
+# fo.close()
 
 # fo = open('info.txt', 'wt', encoding='utf-8')
 #
@@ -39,16 +64,6 @@ fo.close()
 # print('В файл записано', count, 'байт!')
 #
 # fo.close()
-
-
-
-
-
-
-
-
-
-
 
 
 # Пишем и подключаем свои модули
@@ -64,7 +79,6 @@ fo.close()
 # print(add(3, 7))
 # print('Автор')
 # print(package1.module._hidden_function())
-
 
 
 # from lib import summ
