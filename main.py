@@ -4,35 +4,58 @@
 # pip freeze > requirements.txt - создание файла зависимости
 # pip install -r requirements.txt - установка списка библиотек
 
-# Запись данных в существующий файл
+# Работа с формулами:
+# ....
+# ws['A1'] = "=SUM(A1:A10)"
+# Формат:
+# from openpyxl import load_workbook
+# from openpyxl.styles import Font, Alignment
+# # ....
+# wb = load_workbook('docs/employees.xlsx')
+# ws = wb.active
+# ws['A1'].font = Font(bold=True, size=14)
+# ws['A1'].alignment = Alignment(horizontal="center")
+
+# Чтение данных
 from openpyxl import load_workbook
 
-# Открываем (загружаем) рабочую книгу
-wb = load_workbook('docs/report.xlsx')
-
-# Активный лист
+wb = load_workbook('docs/employees.xlsx')
 ws = wb.active
-# Можно и по имени
-# ws = wb['Отчёт']
 
-# Заголовки
-ws['A1'] = 'ФИО'
-ws['B1'] = 'Должность'
-ws['C1'] = 'Отдел'
+rows_count = ws.max_row # число заполненных строк
 
-# Данные
-employees = [
-    ['Иванов И.И.', 'Менеджер', 'Продажи'],
-    ['Петров П.П.', 'Бухгалтер', 'Финансы'],
-    ['Сидорова С.С.', 'Аналитик', 'IT'],
-]
+for row in ws.iter_rows(values_only=True):
+    fio, pos, dept = row
+    print(f'Фамилия: {fio}, Должность: {pos}, Отдел: {dept}')
 
-for row, data in enumerate(employees, start=2):
-    ws.cell(row=row, column=1, value=data[0])
-    ws.cell(row=row, column=2, value=data[1])
-    ws.cell(row=row, column=3, value=data[2])
-
-wb.save('docs/employees.xlsx')
+# from openpyxl import load_workbook
+#
+# # Открываем (загружаем) рабочую книгу
+# wb = load_workbook('docs/report.xlsx')
+#
+# # Активный лист
+# ws = wb.active
+# # Можно и по имени
+# # ws = wb['Отчёт']
+#
+# # Заголовки
+# ws['A1'] = 'ФИО'
+# ws['B1'] = 'Должность'
+# ws['C1'] = 'Отдел'
+#
+# # Данные
+# employees = [
+#     ['Иванов И.И.', 'Менеджер', 'Продажи'],
+#     ['Петров П.П.', 'Бухгалтер', 'Финансы'],
+#     ['Сидорова С.С.', 'Аналитик', 'IT'],
+# ]
+#
+# for row, data in enumerate(employees, start=2):
+#     ws.cell(row=row, column=1, value=data[0])
+#     ws.cell(row=row, column=2, value=data[1])
+#     ws.cell(row=row, column=3, value=data[2])
+#
+# wb.save('docs/employees.xlsx')
 
 # Способы записи
 # ws['F1'] = 'Привет мир'
