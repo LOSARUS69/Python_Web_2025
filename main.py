@@ -5,14 +5,12 @@
 # w - write (запись, создаётся)
 # a - append (запись в конец)
 # r - read - чтение (по умолчанию)
+# print(*args, sep=' ', end='\n', file=None, flush=False)
 
-fo = open('info.txt', 'rt', encoding='utf-8')
+fo = open('info.txt', 'at', encoding='utf-8')
 
-text = fo.read(11)
-fo.read(6)
-text += fo.read(7)
-print('Вот, что было в файле', end=': ')
-print(text)
+# fo.write(' Хороший текст.')
+print('\nА вот ещё одна строка.', file=fo)
 
 fo.close()
 
