@@ -6,26 +6,29 @@
 # a - append (запись в конец)
 # r - read - чтение (по умолчанию)
 # print(*args, sep=' ', end='\n', file=None, flush=False)
+from path_lib import *
 
-import pickle
-import pprint
+print(img_dir)
 
-# d = {
-#     'стол': 'table',
-#     'стул': 'chair'
-# }
+# import pickle
+# import pprint
+#
+# # d = {
+# #     'стол': 'table',
+# #     'стул': 'chair'
+# # }
+#
+# # сериализация
+# # with open('dictfile.dat', 'wb') as p:
+# #     # d - что сериализуем
+# #     # p - куда сериализуем
+# #     pickle.dump(d, p)
+#
+# # десериализация
+# with open('dictfile.dat', 'rb') as p:
+#     d = pickle.load(p)
 
-# сериализация
-# with open('dictfile.dat', 'wb') as p:
-#     # d - что сериализуем
-#     # p - куда сериализуем
-#     pickle.dump(d, p)
-
-# десериализация
-with open('dictfile.dat', 'rb') as p:
-    d = pickle.load(p)
-
-pprint.pprint(d, width=15)
+# pprint.pprint(d, width=15)
 
 # res = []
 #
