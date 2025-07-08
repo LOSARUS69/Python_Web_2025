@@ -7,18 +7,38 @@
 # r - read - чтение (по умолчанию)
 # print(*args, sep=' ', end='\n', file=None, flush=False)
 
-res = []
+import pickle
+import pprint
 
-with open('info.txt', 'rt') as f:
-    while temp := f.readline().rstrip('\n'):
-        res += temp.split(', ')
+# d = {
+#     'стол': 'table',
+#     'стул': 'chair'
+# }
 
-# res = set(list(map(lambda x: x.rstrip('\n'), res)))
-# res = set(res)
+# сериализация
+# with open('dictfile.dat', 'wb') as p:
+#     # d - что сериализуем
+#     # p - куда сериализуем
+#     pickle.dump(d, p)
 
-res = sorted(int(x) for x in set(res))
+# десериализация
+with open('dictfile.dat', 'rb') as p:
+    d = pickle.load(p)
 
-print(res)
+pprint.pprint(d, width=15)
+
+# res = []
+#
+# with open('info.txt', 'rt') as f:
+#     while temp := f.readline().rstrip('\n'):
+#         res += temp.split(', ')
+#
+# # res = set(list(map(lambda x: x.rstrip('\n'), res)))
+# # res = set(res)
+#
+# res = sorted(int(x) for x in set(res))
+#
+# print(res)
 
 # import os
 #
