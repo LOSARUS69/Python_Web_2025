@@ -7,28 +7,48 @@
 #    если исключения не было
 # finally:
 #    выполняется в любом случае
-########################################################
-flag = False  # открывался ли на запись
 
-try:
-    fo = open('information.txt', encoding='utf-8')
-except FileNotFoundError:
-    fo = open('information.txt', 'wt', encoding='utf-8')
-    flag = True
-    print('Файл не обнаружен и создан с параметрами по умолчанию')
-# with open('information.txt', 'wt', encoding='utf-8') as fo:
-#     fo.write('По умолчанию')
-else:
-    print('Файл открыт успешно. Читаем его и закрываем.')
-    print(fo.read())
-    fo.close()
-finally:
-    if flag:  # если файл был открыт на запись
-        fo.write('По умолчанию')
-        fo.close()
-        print('Продолжаем работать.')
+print('Остаток от деления:')
+loop = True
 
-###########################################################
+while loop:
+    try:
+        value = int(input('На что делим число 10: '))
+        res = 10 % value
+        print(f'Остаток от деления 10 на {value} = {res}')
+    except ZeroDivisionError:
+        print('На ноль делить нельзя!')
+    except ValueError:
+        print('Надо вводить только целые числа')
+    except Exception as exp:
+        print('Произошло исключение:',
+              exp.__class__.__name__,
+              exp)
+    else:
+        loop = False
+
+# ########################################################
+# flag = False  # открывался ли на запись
+#
+# try:
+#     fo = open('information.txt', encoding='utf-8')
+# except FileNotFoundError:
+#     fo = open('information.txt', 'wt', encoding='utf-8')
+#     flag = True
+#     print('Файл не обнаружен и создан с параметрами по умолчанию')
+# # with open('information.txt', 'wt', encoding='utf-8') as fo:
+# #     fo.write('По умолчанию')
+# else:
+#     print('Файл открыт успешно. Читаем его и закрываем.')
+#     print(fo.read())
+#     fo.close()
+# finally:
+#     if flag:  # если файл был открыт на запись
+#         fo.write('По умолчанию')
+#         fo.close()
+#         print('Продолжаем работать.')
+#
+# ###########################################################
 # Файлы и OC-модуль
 # name.txt
 # t - текстовый файл (txt, html, xml)
