@@ -11,21 +11,23 @@
 while True:
     a = input('Введите первое число: ')
     b = input('Введите второе число: ')
-
-    if a.isdigit() and b.isdigit():
-        if int(b) == 0:
-            print('На ноль делить нельзя')
-        else:
-            print(int(a) / int(b))
-            break
+    try:
+        result = int(a) / int(b)
+    except ZeroDivisionError:
+        print('На ноль делить нельзя!!!')
+    except ValueError:
+        print('Нужно вводить числа...')
+        print(f'А введено: {a} и {b} :(')
     else:
-        print('Вводить надо только числа.')
+        print(result)
+        break
+
 
 # Задача 1.
 # lst = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # try:
 #     index = int(input('Введите индекс: '))
-#     if not -len(lst) < index < len(lst) - 1:
+#     if not -len(lst) <= index < len(lst) - 1:
 #         raise ValueError('Индекс вне диапазона')
 #     res = lst[index]
 #     print(f'Число по индексу {index}: {res}')
