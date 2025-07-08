@@ -7,14 +7,27 @@
 # r - read - чтение (по умолчанию)
 # print(*args, sep=' ', end='\n', file=None, flush=False)
 
-import os
+res = []
 
-path = os.getcwd()  # get current working directory
-os.chdir(path + '/images')
+with open('info.txt', 'rt') as f:
+    while temp := f.readline().rstrip('\n'):
+        res += temp.split(', ')
 
-all_files = [f for f in os.listdir('.') if f.startswith('py')]
-os.chdir('..')
-print(all_files)
+# res = set(list(map(lambda x: x.rstrip('\n'), res)))
+# res = set(res)
+
+res = sorted(int(x) for x in set(res))
+
+print(res)
+
+# import os
+#
+# path = os.getcwd()  # get current working directory
+# os.chdir(path + '/images')
+#
+# all_files = [f for f in os.listdir('.') if f.startswith('py')]
+# os.chdir('..')
+# print(all_files)
 
 # path = os.getcwd()  # get current working directory
 # print(path)
