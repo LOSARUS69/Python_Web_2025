@@ -1,14 +1,19 @@
 # OOП (encapsulation)
 # задачи
-from lib import Sorter
+from lib import Balance
 
-s = Sorter()
+b = Balance()
 
-s.add_word('привет')
-s.add_word('пока')
-s.add_word('здорово')
+b.add_left(5)
+b.add_right(4)
+b.add_left(3)
+b.add_right(5)
+b.add_left(6)
+b.add_right(7)
+b.add_left(2)
+b.add_right(4)
 
-print(s.result())
+print(b.result())
 
 # from lib import Separator
 #

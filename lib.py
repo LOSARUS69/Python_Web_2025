@@ -1,3 +1,17 @@
+class Balance:
+    def __init__(self):
+        self.right = 0
+        self.left = 0
+
+    def add_left(self, weight):  # в граммах
+        pass
+
+    def add_right(self, weight):  # в граммах
+        pass
+
+    def result(self) -> str:
+        return # состояние (левая перевесила, уравновешены...)
+
 class Sorter:
     def __init__(self):
         self.words = []
