@@ -20,8 +20,15 @@ import re
 # pattern = '[а-яА-я]' # все буквы от а до я и от А до Я
 # pattern = '[^ерм]'  # исключить символы
 # pattern = r'\((.+?)\)' # вытащить текст из скобок
-pattern = 'Go{2,}gle' # Google где 2 и более o
-test_string = 'Google, Gooogle, Gooooooogle'
+# pattern = 'Go{2,}gle' # Google где 2 и более o
+# pattern = r'стеклянн?ый' # 2-я "н" может присутствовать
+# "жадный" и "ленивый" квантификатор (greedy quantifier)
+# pattern = r'<img.*>' # жадный квантификатор
+# pattern = r'<img.*?>' # ленивый (lazy, non-greedy) квантификатор
+# pattern = r'<img[^>]+src="([^">]+)"' # только путь к картинке
+# pattern = r'<p>(.*?)</p>' # содержимое абзаца html
+pattern = r'<p[^>]*>(.*?)</p>' # содержимое абзаца html c атрибутами
+test_string = '<b>Центрируем</b><p align="center">Содержимое</p>'
 
 result = re.findall(pattern, test_string)
 print(result)
