@@ -9,6 +9,7 @@
 # ? - от нуля до одного (аналог {0,1})
 # * - от нуля до бесконечности (32767) {0,}
 # + - от 1 до бесконечности (32767) {1,}
+# https://regex101.com
 
 import re
 
@@ -27,8 +28,18 @@ import re
 # pattern = r'<img.*?>' # ленивый (lazy, non-greedy) квантификатор
 # pattern = r'<img[^>]+src="([^">]+)"' # только путь к картинке
 # pattern = r'<p>(.*?)</p>' # содержимое абзаца html
-pattern = r'<p[^>]*>(.*?)</p>' # содержимое абзаца html c атрибутами
-test_string = '<b>Центрируем</b><p align="center">Содержимое</p>'
+# pattern = r'<p[^>]*>(.*?)</p>' # содержимое абзаца html c атрибутами
+# Убираем все знаки препинания
+def remove_punctuation(input_str: str) -> str:
+    """
+    Методом sub() заменяем все найденные совпадения
+    пустой строкой и возвращаем "очищенную"
+    :param input_str: строка со знаками препинания
+    :return: строку, очищенную от зн. преп.
+    """
+    return re.sub(r'[^\w\s]', '', input_str)
 
-result = re.findall(pattern, test_string)
+test_string = 'Язык Python, явл?яясь интуи,тивно понятным, прост для изучения! Ну и PEP8.'
+
+result = remove_punctuation(test_string)
 print(result)
