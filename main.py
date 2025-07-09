@@ -30,16 +30,20 @@ import re
 # pattern = r'<p>(.*?)</p>' # содержимое абзаца html
 # pattern = r'<p[^>]*>(.*?)</p>' # содержимое абзаца html c атрибутами
 # Убираем все знаки препинания
-def remove_punctuation(input_str: str) -> str:
-    """
-    Методом sub() заменяем все найденные совпадения
-    пустой строкой и возвращаем "очищенную"
-    :param input_str: строка со знаками препинания
-    :return: строку, очищенную от зн. преп.
-    """
-    return re.sub(r'[^\w\s]', '', input_str)
-
-test_string = 'Язык Python, явл?яясь интуи,тивно понятным, прост для изучения! Ну и PEP8.'
-
-result = remove_punctuation(test_string)
+# def remove_punctuation(input_str: str) -> str:
+#     """
+#     Методом sub() заменяем все найденные совпадения
+#     пустой строкой и возвращаем "очищенную"
+#     :param input_str: строка со знаками препинания
+#     :return: строку, очищенную от зн. преп.
+#     """
+#     return re.sub(r'[^\w\s]', '', input_str)
+pattern = r'[,.:;!]'
+test_string = '   яблоко,  груша.   банан  ; слива !  абрикос  '
+# test_string = ''.join(test_string.split())  # убрали все пробелы
+result = re.split(pattern, test_string)
+# через map
+# result = list(map(lambda x: x.strip(), result))
+# через list comprehension с сортировкой
+result = sorted(x.strip() for x in result)
 print(result)
