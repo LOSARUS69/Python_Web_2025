@@ -12,6 +12,16 @@
 # https://regex101.com
 
 import re
+import requests
+
+pattern = r'<img[^>]+src="([^">]+)"'
+# Сначала проверили
+# test_string = '<img height="50" width="150" src="images/bg.jpg">'
+html = requests.get('https://yandex.ru').text
+result = re.findall(pattern, html)
+print(result)
+
+
 
 # pattern = r'\b\w{4}\b' # все слова из 4 символов
 # pattern = r'\d' # все цифры от 0 до 9
@@ -38,12 +48,15 @@ import re
 #     :return: строку, очищенную от зн. преп.
 #     """
 #     return re.sub(r'[^\w\s]', '', input_str)
-pattern = r'[,.:;!]'
-test_string = '   яблоко,  груша.   банан  ; слива !  абрикос  '
-# test_string = ''.join(test_string.split())  # убрали все пробелы
-result = re.split(pattern, test_string)
-# через map
-# result = list(map(lambda x: x.strip(), result))
-# через list comprehension с сортировкой
-result = sorted(x.strip() for x in result)
-print(result)
+
+# Split()
+# test_string = '   яблоко,  груша.   банан  ; слива !  абрикос  '
+# # test_string = ''.join(test_string.split())  # убрали все пробелы
+# result = re.split(pattern, test_string)
+# # через map
+# # result = list(map(lambda x: x.strip(), result))
+# # через list comprehension с сортировкой
+# result = sorted(x.strip() for x in result)
+# print(result)
+
+
