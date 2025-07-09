@@ -1,16 +1,23 @@
 # OOП (encapsulation)
-# Статичные члены класса
-from lib import Clicker
+# задачи
+from lib import Separator
 
-cl = Clicker()
+s = Separator()
 
-cl.click()
-cl.click()
-cl.click()
+for i in range(20):
+    s.add_num(i)
 
-print(cl.get_counter())
-cl.reset()
-print(cl.get_counter())
+print(s.get_even())
+
+# cl = Clicker()
+#
+# cl.click()
+# cl.click()
+# cl.click()
+#
+# print(cl.get_counter())
+# cl.reset()
+# print(cl.get_counter())
 
 # car1 = Car()
 # car2 = Car()
