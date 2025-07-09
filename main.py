@@ -1,21 +1,16 @@
 # OOП (encapsulation)
 # Методы классов и анализ предыдущих вызовов
-class Car:
-    def __init__(self):
-        print('Конструктор вызван')
+# Конструктор
+from lib import Car
 
-    def start_engine(self):
-        self.engine_on = True  # пока не сработает
-
-    def drive_to(self, place):
-        if self.engine_on:
-            print(f'Едем в {place}')
-        else:
-            print('Двигатель не заведён, не едем')
-
-car = Car()
+car = Car('Skoda', 'Octavia', 'red')
 car.start_engine()
+# car.engine_on = True
 car.drive_to('город')
+
+car2 = Car()
+car2.start_engine()
+car2.drive_to('город')
 
 # Методы классов
 # class Greater:
