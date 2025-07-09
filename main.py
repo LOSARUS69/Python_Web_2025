@@ -1,16 +1,48 @@
 # OOП (encapsulation)
-# Методы классов и анализ предыдущих вызовов
-# Конструктор
-from lib import Car
+# Геттеры и сеттеры
+class Person:
+    def __init__(self, name='Bill', age=1):
+        # свойства (поля) класса
+        self._name = name
+        self._age = age
 
-car = Car('Skoda', 'Octavia', 'red')
-car.start_engine()
-# car.engine_on = True
-car.drive_to('город')
+    # setters
+    def set_name(self, new_name):
+        if new_name:
+            self._name = new_name
 
-car2 = Car()
-car2.start_engine()
-car2.drive_to('город')
+    def set_age(self, new_age):
+        if 0 < new_age < 150:
+            self._age = new_age
+        else:
+            print('Некорректный возраст — ', new_age)
+
+    # getters
+    def get_name(self):
+        return self._name
+
+    def get_age(self):
+        return self._age
+
+    def person_info(self):
+        print(f'Человек с именем {self._name}. Возраст: {self._age}')
+
+
+p = Person()
+p.set_age(7897)
+print(p.get_name())
+p.person_info()
+
+# from lib import Car
+#
+# car = Car('Skoda', 'Octavia', 'red')
+# car.start_engine()
+# # car.engine_on = True
+# car.drive_to('город')
+#
+# car2 = Car()
+# car2.start_engine()
+# car2.drive_to('город')
 
 # Методы классов
 # class Greater:
