@@ -1,3 +1,17 @@
+class Clicker:
+    def __init__(self):
+        self._counter = 0
+
+    def click(self):
+        self._counter += 1
+
+    def get_counter(self):
+        return self._counter
+
+    def reset(self):
+        self._counter = 0
+
+
 class Car:
     counter = 0  # статичное свойство (счетчик машин)
 

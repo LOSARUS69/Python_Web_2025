@@ -1,12 +1,22 @@
 # OOП (encapsulation)
 # Статичные члены класса
-from lib import Car
+from lib import Clicker
 
-car1 = Car()
-car2 = Car()
-car3 = Car()
+cl = Clicker()
 
-print('В парке машин:', Car.get_counter())
+cl.click()
+cl.click()
+cl.click()
+
+print(cl.get_counter())
+cl.reset()
+print(cl.get_counter())
+
+# car1 = Car()
+# car2 = Car()
+# car3 = Car()
+#
+# print('В парке машин:', Car.get_counter())
 
 # from lib import Person
 #
