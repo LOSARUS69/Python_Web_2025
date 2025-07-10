@@ -1,3 +1,64 @@
+from math import pi
+
+# Фигуры
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+        self.name = 'круг'
+
+    def perimetr(self):
+        return round(2 * pi * self.radius, 2)
+
+    def area(self):
+        return round(pi * self.radius ** 2, 2)
+
+    def get_name(self):
+        return self.name
+
+
+class Square:
+    def __init__(self, side):
+        self.side = side
+        self.name = 'квадрат'
+
+    def perimetr(self):
+        return 4 * self.side
+
+    def area(self):
+        return self.side ** 2
+
+    def get_name(self):
+        return self.name
+
+
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+        self.name = 'прямоугольник'
+
+    def perimetr(self):
+        return 2 * (self.width + self.height)
+
+    def area(self):
+        return self.width * self.height
+
+    def get_name(self):
+        return self.name
+
+# Книги
+class Book:
+    def __init__(self, title, author):
+        self._title = title
+        self._author = author
+
+    def get_title(self):
+        return self._title
+
+    def get_author(self):
+        return self._author
+
+# Весы
 class Balance:
     def __init__(self):
         self._right = 0
@@ -84,6 +145,7 @@ class Balance:
         """
         return self._left == self._right
 
+
 class Sorter:
     def __init__(self):
         self.words = []
@@ -151,6 +213,24 @@ class Car:
     def get_counter():
         return Car.counter
 
+class Student:
+    def __init__(self, name='Bill', univ=''):
+        # свойства (поля) класса
+        self._name = name
+        self._univercity = univ
+
+    def get_univercity(self):
+        return self._univercity
+
+
+class Employee:
+    def __init__(self, name='Bill', comp=''):
+        # свойства (поля) класса
+        self._name = name
+        self._company = comp
+
+    def get_company(self):
+        return self._company
 
 class Person:
     def __init__(self, name='Bill', age=1):
