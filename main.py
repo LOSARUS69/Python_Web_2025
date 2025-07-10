@@ -1,39 +1,63 @@
-# OOП (polymorphism)
+# OOП (magic methods)
 # method override; operator overloading
+from math import hypot
+
+
+class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f'<Point: ({self.x}, {self.y})>'
+
+    def __repr__(self):
+        return f'<List of Points: ({self.x}, {self.y})>'
+
+    def __sub__(self, other):
+        return Point(abs(self.x - other.x), abs(self.y - other.y))
+
+    def __add__(self, other):
+        pass
+
+p1 = Point(5, 7)
+p2 = Point(9, 12)
+print(p1 - p2)
+print(p1 + p2)
+# str(a) -> a.__str__()
 # isinstance(объект, тип) -> True
 # isinstance(объект, (тип1,  тип 2, тип N)) -> True
-from idlelib.configdialog import is_int
 
-lst = list(range(1, 15))
-lst += ['a']
-
-class Stat:
-    def __init__(self, vals):
-        self.values = vals[:]  # получаем копию
-
-    def is_all_int(self) -> bool:
-        return all(isinstance(item, int) for item in self.values)
-
-    def get_min(self):
-        if self.is_all_int():
-            return min(self.values)
-        return None
-
-    def get_max(self):
-        if self.is_all_int():
-            return max(self.values)
-        return None
-
-    def get_aver(self):
-        if self.is_all_int():
-            return sum(self.values) / len(self.values)
-        return None
-
-
-s = Stat(lst)
-print(s.get_min())
-print(s.get_max())
-print(s.get_aver())
+# lst = list(range(1, 15))
+# lst += ['a']
+#
+# class Stat:
+#     def __init__(self, vals):
+#         self.values = vals[:]  # получаем копию
+#
+#     def is_all_int(self) -> bool:
+#         return all(isinstance(item, int) for item in self.values)
+#
+#     def get_min(self):
+#         if self.is_all_int():
+#             return min(self.values)
+#         return None
+#
+#     def get_max(self):
+#         if self.is_all_int():
+#             return max(self.values)
+#         return None
+#
+#     def get_aver(self):
+#         if self.is_all_int():
+#             return sum(self.values) / len(self.values)
+#         return None
+#
+#
+# s = Stat(lst)
+# print(s.get_min())
+# print(s.get_max())
+# print(s.get_aver())
 
 # class Selector:
 #     def __init__(self, vals):
