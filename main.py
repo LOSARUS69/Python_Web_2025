@@ -1,30 +1,54 @@
 # OOП (magic methods)
 # method override; operator overloading
-from math import hypot
 
-
-class Point:
-    def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
-
-    def __str__(self):
-        return f'<Point: ({self.x}, {self.y})>'
-
-    def __repr__(self):
-        return f'<List of Points: ({self.x}, {self.y})>'
-
-    def __sub__(self, other):
-        return Point(abs(self.x - other.x), abs(self.y - other.y))
+class MyTime:
+    def __init__(self, minutes, seconds):
+        if 0 <= minutes < 60:
+            self.minutes = minutes
+        if 0 <= seconds < 60:
+            self.seconds = seconds
 
     def __add__(self, other):
-        return hypot(self.x - other.x, self.y - other.y)
+        m = self.minutes + other.minutes
+        s = self.seconds + other.seconds
+        m += s // 60
+        s = s % 60
+        m = m % 60
+        return MyTime(m, s)
+
+    def __str__(self):
+        return f'<Time {self.minutes:02}:{self.seconds:02}>'
 
 
-p1 = Point(5, 4)
-p2 = Point(10, 2)
-print(p1 - p2)
-print(p1 + p2)
+t1 = MyTime(13, 0)
+t2 = MyTime(53, 5)
+print(t1 + t2)
+
+# from math import hypot
+#
+#
+# class Point:
+#     def __init__(self, x=0, y=0):
+#         self.x = x
+#         self.y = y
+#
+#     def __str__(self):
+#         return f'<Point: ({self.x}, {self.y})>'
+#
+#     def __repr__(self):
+#         return f'<List of Points: ({self.x}, {self.y})>'
+#
+#     def __sub__(self, other):
+#         return Point(abs(self.x - other.x), abs(self.y - other.y))
+#
+#     def __add__(self, other):
+#         return hypot(self.x - other.x, self.y - other.y)
+#
+#
+# p1 = Point(5, 4)
+# p2 = Point(10, 2)
+# print(p1 - p2)
+# print(p1 + p2)
 # str(a) -> a.__str__()
 # isinstance(объект, тип) -> True
 # isinstance(объект, (тип1,  тип 2, тип N)) -> True
