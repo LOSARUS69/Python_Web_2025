@@ -18,10 +18,11 @@ class Point:
         return Point(abs(self.x - other.x), abs(self.y - other.y))
 
     def __add__(self, other):
-        pass
+        return hypot(self.x - other.x, self.y - other.y)
 
-p1 = Point(5, 7)
-p2 = Point(9, 12)
+
+p1 = Point(5, 4)
+p2 = Point(10, 2)
 print(p1 - p2)
 print(p1 + p2)
 # str(a) -> a.__str__()
